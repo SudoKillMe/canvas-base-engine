@@ -1,6 +1,8 @@
-import { PointInterface } from './points';
+import { PointInterface } from './point';
 
 interface ShapeInterface {
-    points: Array<PointInterface>;
+    
+    pointInside(point: PointInterface ): boolean;
 }
 
+export { ShapeInterface };

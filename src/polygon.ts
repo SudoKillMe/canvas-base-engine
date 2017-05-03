@@ -1,4 +1,5 @@
-import { PointInterface, Point } from './points';
+import { PointInterface, Point } from './point';
+import { ShapeInterface } from './shape';
 
 interface PolygonInterface {
     center_x: number;
@@ -14,7 +15,7 @@ interface PolygonInterface {
     move(x: number, y: number): void;
 }
 
-class Polygon implements PolygonInterface {
+class Polygon implements PolygonInterface, ShapeInterface {
 
     center_x: number;
     center_y: number;
@@ -51,6 +52,15 @@ class Polygon implements PolygonInterface {
         }
 
         return points;
+    }
+
+    pointInside(point: Point): boolean {
+        let points = this.getPoints();
+        
+        if ( Math.sqrt( Math.pow( point.x - this.center_x, 2 ) + Math.pow( point.y - this.center_y, 2 ) ) > this.radius )
+            return false;
+
+        return true;
     }
 
     createPath( context: CanvasRenderingContext2D ): void {
