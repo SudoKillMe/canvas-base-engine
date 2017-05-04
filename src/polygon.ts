@@ -6,7 +6,7 @@ interface PolygonInterface {
     center_y: number;
     radius: number;
     sides: number;
-    startAngle?: number;
+    startAngle: number;
 
     getPoints(): Array<PointInterface>;
     createPath(context: CanvasRenderingContext2D): void;
@@ -29,7 +29,7 @@ class Polygon implements PolygonInterface, ShapeInterface {
         radius: number,
         sides: number,
         startAngle: number = 0
-    ) 
+    )
     {
         this.center_x = center_x;
         this.center_y = center_y;
@@ -55,7 +55,6 @@ class Polygon implements PolygonInterface, ShapeInterface {
     }
 
     pointInside(point: Point): boolean {
-        let points = this.getPoints();
         
         if ( Math.sqrt( Math.pow( point.x - this.center_x, 2 ) + Math.pow( point.y - this.center_y, 2 ) ) > this.radius )
             return false;
@@ -65,7 +64,6 @@ class Polygon implements PolygonInterface, ShapeInterface {
 
     createPath( context: CanvasRenderingContext2D ): void {
         let points = this.getPoints();
-        console.log(points);
         context.beginPath();
         context.moveTo( points[0].x, points[0].y );
         for ( let i = 1; i < this.sides; i++ ) {
