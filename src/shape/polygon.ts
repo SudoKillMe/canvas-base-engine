@@ -1,5 +1,5 @@
 import { PointInterface, Point } from './point';
-import { ShapeInterface } from './shape';
+import { ShapeInterface } from './ShapeInterface';
 
 interface PolygonInterface {
     center_x: number;

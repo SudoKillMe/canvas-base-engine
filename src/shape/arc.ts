@@ -1,5 +1,5 @@
 import { PointInterface, Point } from './point';
-import { ShapeInterface } from './shape';
+import { ShapeInterface } from './ShapeInterface';
 
 interface ArcInterface {
     createPath(context: CanvasRenderingContext2D): void;
