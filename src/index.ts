@@ -1,4 +1,6 @@
 import { PolygonPainter } from './painter/PolygonPainter';
+import { RectanglePainter } from './painter/RectanglePainter';
+import { ImagePainter } from './painter/ImagePainter';
 import { MoveLeftToRight } from './behavior/MoveLeftToRight';
 import { Sprite } from './sprite';
 
@@ -8,11 +10,12 @@ let context: CanvasRenderingContext2D = canvas.getContext('2d');
 canvas.width = 1000;
 canvas.height = 500;
 
-let sprite = new Sprite('polygon', PolygonPainter.single(), [MoveLeftToRight]);
+let img = '/src/static/images/mario.jpg';
+let sprite = new Sprite('polygon', (new ImagePainter(img)), [MoveLeftToRight]);
+sprite.left = 400;
 sprite.top = 200;
-sprite.left = 500;
-sprite.width = 100;
-sprite.height = 100;
+sprite.width = 200;
+sprite.height = 200;
 
 function animate() {
     console.log('trigger');

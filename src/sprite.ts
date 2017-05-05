@@ -16,12 +16,18 @@ type Size = {
 }
 
 interface SpriteInterface {
-    // top: number;
-    // left: number;
-    // width: number;
-    // height: number;
-    // velocityX: number; //水平速度
-    // velocityY: number; //垂直速度
+    top?: number;
+    left?: number;
+    width?: number;
+    height?: number;
+
+    center_x?: number;
+    center_y?: number;
+    radius?: number;
+    sides?: number;
+
+    velocityX?: number; //水平速度
+    velocityY?: number; //垂直速度
     behaviors: Array<BehaviorInterface>;
     painter: PainterInterface;
 
@@ -33,12 +39,19 @@ interface SpriteInterface {
 
 class Sprite implements SpriteInterface {
 
-    top = 0;
-    left = 0;
-    width = 10;
-    height = 10
+    center_x = 50;
+    center_y = 50;
+    radius = 50;
+    sides = 4;
+
+    top = 100;
+    left = 100;
+    width = 100;
+    height = 100;
     velocityX = 1;
     velocityY = 1;
+
+
 
     behaviors: Array<BehaviorInterface>;
     painter: PainterInterface;
