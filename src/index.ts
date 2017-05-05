@@ -10,12 +10,12 @@ let context: CanvasRenderingContext2D = canvas.getContext('2d');
 canvas.width = 1000;
 canvas.height = 500;
 
-let img = '/src/static/images/mario.jpg';
+let img = '/src/static/images/m.jpg';
 let sprite = new Sprite('polygon', (new ImagePainter(img)), [MoveLeftToRight]);
 sprite.left = 400;
 sprite.top = 200;
-sprite.width = 200;
-sprite.height = 200;
+sprite.width = 52;
+sprite.height = 62;
 
 function animate() {
     console.log('trigger');
@@ -32,3 +32,9 @@ window.requestAnimationFrame(animate);
 canvas.addEventListener('click', function(e) {
     console.log(e.clientX);
 });
+
+// let i = new Image();
+// i.src = '/src/static/images/small_bg.png';
+// i.onload = function () {
+//     context.drawImage(i, 0, 0);
+// }

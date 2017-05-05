@@ -4,7 +4,6 @@ import { Sprite } from '../sprite';
 class ImagePainter implements PainterInterface {
 
     image: HTMLImageElement;
-    
     constructor(url: string) {
         this.image = new Image();
         this.image.src = url;
