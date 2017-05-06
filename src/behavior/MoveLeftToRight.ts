@@ -4,7 +4,6 @@ import { SpriteInterface, Sprite } from '../sprite';
 let MoveLeftToRight: BehaviorInterface;
 MoveLeftToRight = {
     execute(sprite: Sprite, context: CanvasRenderingContext2D, now: number): void {
-        console.log(context.canvas.width);
         if ( ( sprite.left + sprite.width) >= context.canvas.width ) {
             sprite.velocityX = -1;
         } else if ( sprite.left <= 0 ) {

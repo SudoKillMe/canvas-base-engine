@@ -65,9 +65,9 @@ class Sprite implements SpriteInterface {
         this.painter.paint(this, context);
     }
 
-    update(context: CanvasRenderingContext2D): void {
+    update(context: CanvasRenderingContext2D, time: number=0): void {
         for( let i = 0; i < this.behaviors.length; i++ ) {
-            this.behaviors[i].execute(this, context, 0);
+            this.behaviors[i].execute(this, context, time);
         }
     }
 

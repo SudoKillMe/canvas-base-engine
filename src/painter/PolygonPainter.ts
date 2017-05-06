@@ -10,7 +10,7 @@ PolygonPainter = {
         new Polygon(
             sprite.center_x,
             sprite.center_y,
-            sprite.radius,
+            sprite.radius,  
             sprite.sides
         ).stroke(context);
     }
