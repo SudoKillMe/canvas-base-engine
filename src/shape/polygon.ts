@@ -90,6 +90,7 @@ class Polygon implements PolygonInterface, ShapeInterface {
         this.center_x = x;
         this.center_y = y;
     }
+
 }
 
 export { Polygon };

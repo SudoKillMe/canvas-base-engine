@@ -18,7 +18,7 @@ module.exports = {
         alias: {
             src: path.resolve( __dirname, '../src' )
         },
-        extensions: ['.js', '.ts']
+        extensions: ['.js', '.ts', '.json']
     },
     
     module: {
@@ -32,6 +32,10 @@ module.exports = {
                 test: /\.ts$/,
                 exclude: [/node_modules/],
                 use: 'ts-loader'
+            },
+            {
+                test: /\.json$/,
+                use: 'json-loader'
             },
             {
                 test: /\.html$/,

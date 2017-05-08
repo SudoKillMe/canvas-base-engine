@@ -47,10 +47,10 @@ class Arc implements ArcInterface, ShapeInterface {
     }
 
     stroke(context: CanvasRenderingContext2D): void {
-       // context.save();
+        context.save();
         this.createPath(context);
         context.stroke();
-       // context.restore();
+        context.restore();
     }
 
     fill(context: CanvasRenderingContext2D): void {

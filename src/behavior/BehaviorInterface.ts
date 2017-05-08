@@ -1,7 +1,7 @@
-import { SpriteInterface } from '../sprite';
+import { SpriteInterface } from '../sprite/Sprite';
 
 interface BehaviorInterface {
-    execute(sprite: SpriteInterface, context: CanvasRenderingContext2D, now: number): void;
+    execute(sprite: SpriteInterface, context: CanvasRenderingContext2D, now: number): void; 
 }
 
 export { BehaviorInterface };

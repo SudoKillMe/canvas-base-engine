@@ -4,18 +4,19 @@
  * 创建一个精灵需要提供一个精灵的名称，然后提供一个绘制器(Painter)来实现绘制精灵，这可以实现解耦
  * 还需要提供精灵的行为，是一个数组；每一个行为都是一个对象，含有一个execute方法
  */
+import { BehaviorInterface } from '../behavior/BehaviorInterface';
+import { PainterInterface } from '../painter/PainterInterface';
 
-import { BehaviorInterface } from './behavior/BehaviorInterface';
-import { PainterInterface } from './painter/PainterInterface';
+// let SpriteName = require('../config/sprite.json');
 
 type Size = {
-    top: number;
+    top: number;  
     left: number;
     width: number;
     height: number;
 }
 
-interface SpriteInterface {
+interface SpriteInterface { 
     top?: number;
     left?: number;
     width?: number;
@@ -44,6 +45,10 @@ class Sprite implements SpriteInterface {
     radius = 50;
     sides = 4;
 
+    startAngle: number;
+    endAngle: number;
+    anticlockwise: boolean=false;
+
     top = 100;
     left = 100;
     width = 100;
@@ -56,9 +61,11 @@ class Sprite implements SpriteInterface {
     behaviors: Array<BehaviorInterface>;
     painter: PainterInterface;
 
-    constructor(name: string, painter: PainterInterface, behaviors?: Array<BehaviorInterface>) {
+    constructor(name: string, painter: PainterInterface, behaviors: Array<BehaviorInterface>=[]) {
         this.painter = painter;
         this.behaviors = behaviors;
+
+
     }
 
     paint(context: CanvasRenderingContext2D): void {
@@ -72,5 +79,44 @@ class Sprite implements SpriteInterface {
     }
 
 }
+
+class CircleSprite extends Sprite {
+
+    center_x: number;
+    center_y: number;
+    radius: number;
+    startAngle: number;
+    endAngle: number;
+    anticlockwise: boolean;
+
+    constructor(name: string, painter: PainterInterface, behaviors: Array<BehaviorInterface>=[]) {
+        super(name, painter, behaviors);
+
+        // let circle = SpriteName.circle;
+        // this.center_x = circle.center_x;
+        // this.center_y = circle.center_y;
+        // this.radius = circle.radius;
+        // this.startAngle = circle.startAngle;
+        // this.endAngle = circle.endAngle;
+        // this.anticlockwise = circle.anticlockwise;
+    }
+
+}
+
+class RectangelSprite extends Sprite {
+
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+
+    constructor(name: string, painter: PainterInterface, behaviors: Array<BehaviorInterface>=[]) {
+        super(name, painter, behaviors);
+
+
+    }
+}
+
+class PolygonSprite extends Sprite {}
 
 export { SpriteInterface, Sprite };
